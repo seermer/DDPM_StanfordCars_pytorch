@@ -1,0 +1,28 @@
+SEED = 1
+DEVICE = 'cuda'
+AMP = True
+CHANNELS_LAST = False
+
+IMG_SIZE = 64
+
+NOISE = (0.0001, 0.02)
+MAX_STEPS = 1000
+NUM_SAMPLES = 8
+
+INIT_CHANNELS = 64
+STAGES = (1, 2, 4, 8)
+NUM_RES = 2
+DROPOUT = 0.05
+
+LR = 1.5e-4 * (128 ** 0.5) / (INIT_CHANNELS ** 0.5)
+BATCH_SIZE = 128
+EMA_SCALE = 0.9999
+
+SAMPLE_SPACE = MAX_STEPS // (6 - 1)
+
+# checks
+if AMP:
+    assert DEVICE == 'cuda'
+assert NUM_SAMPLES > 2
+assert 1 > NOISE[1] > NOISE[0] > 0
+assert MAX_STEPS > 0
