@@ -1,4 +1,6 @@
 # Project exclude paths
-/cars/
-/ckpts/
-/samples/
+cars/
+ckpts/
+samples/
+playground.py
+.idea
